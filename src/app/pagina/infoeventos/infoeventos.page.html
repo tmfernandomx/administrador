@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="eventos"></ion-back-button>
+        </ion-buttons>
+    <ion-title>informacion del evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <img src="../../../assets/sidos.png" id="imagenes">
+  <ion-button expand="full" (click)="seleccionarfoto()"> cargar foto</ion-button>
+
+
+
+  <ion-list lines="full">
+    <ion-item *ngIf="evento">
+      <ion-input required type="string" placeholder="nombre del evento" [(ngModel)]="evento.nombre">
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="evento">
+      <ion-label>Fecha del vento</ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" placeholder="DD MM YY" [(ngModel)]="evento.fecha"></ion-datetime>
+    </ion-item>
+</ion-list>
+
+    <ion-button expand="full" (click)="saveTodo()">Guardar</ion-button>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+        <ion-fab-button color="danger" routerLink="/" routerDirection="forward" (click)="onRemove(eventoID)">
+        <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> 
+</ion-content>
