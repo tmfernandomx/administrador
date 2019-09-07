@@ -10,9 +10,12 @@ import { from } from 'rxjs';
 })
 export class EventosPage implements OnInit {
   eventos:Eventos[];
+  id: any;
   constructor(private eventosService:EventosService,
               public authservice: AuthService) { 
 
+      console.log("Eventos:"+localStorage.getItem("id"));
+      this.id = localStorage.getItem("id");
   }
 
   ngOnInit() {
