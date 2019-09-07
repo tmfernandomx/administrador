@@ -12,7 +12,7 @@ import{ImagePicker, ImagePickerOptions} from  '@ionic-native/image-picker/ngx';
   styleUrls: ['./infoeventos.page.scss'],
 })
 export class InfoeventosPage implements OnInit {
-evento: Eventos={
+evento: Eventos={ 
     imagen:'',
     nombre:'',
     fecha:''

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="eventos"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Informacion de la mascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+    <img [src]="registro.foto" id="imagenes">
+    <ion-button expand="full" (click)="seleccionarfoto()"> cargar foto</ion-button>
+
+    <ion-list lines="full">
+        <ion-item *ngIf="registro">
+          <ion-input required type="string" placeholder="nombre de la mascota" [(ngModel)]="registro.nombre">
+          </ion-input>
+        </ion-item>
+        <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="genero de la mascota" [(ngModel)]="registro.genero">
+            </ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="raza de la mascota" [(ngModel)]="registro.raza">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="edad de la mascota" [(ngModel)]="registro.edad">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="rasgos de la mascota" [(ngModel)]="registro.rasgos">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="historia de la mascota" [(ngModel)]="registro.historia">
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="registro">
+            <ion-input required type="string" placeholder="datos medicos de la mascota" [(ngModel)]="registro.medicos">
+            </ion-input>
+          </ion-item>
+    </ion-list>
+ 
+    <ion-button expand="full" (click)="saveTodo()">Guardar</ion-button>
+
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+        <ion-fab-button color="danger" routerLink="/" routerDirection="forward" (click)="onRemove(eventoID)">
+        <ion-icon name="trash"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> 
+
+ 
+</ion-content>

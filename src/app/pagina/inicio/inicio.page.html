@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title text-center >Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img src=".../../assets/logo.jpg"></ion-img>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+      <form #forumlario="ngForm" (ngSubmit)="onSubmitTemple()">
+          <ion-list>
+              <ion-item>
+                <ion-input  type="email" 
+                [(ngModel)]="email"
+                name="email"
+                pattern="^([a-zA-Z0-9\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z0-9]{2,5})$"
+                placeholder="correo electrónico"
+                required>
+                
+                </ion-input>
+              </ion-item>
+      
+              <ion-item>
+                  <ion-input  type="password" 
+                  [(ngModel)]="password"
+                  name="password"
+                 
+                  placeholder="usuario"
+                  required>
+        
+                  </ion-input>
+                </ion-item>
+            </ion-list>
+            
+
+            <ion-button expand="full" type="submit"  (click)="onSubmitlogin()">Entrar</ion-button>
+            
+
+      </form>
+<!--      
+      <ion-button expand="full" type="submit"
+                  [disable]=""
+      >
+
+      </ion-button>
+       -->
+   </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+     <p text-center routerLink="/registrohogar">crear cuenta</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

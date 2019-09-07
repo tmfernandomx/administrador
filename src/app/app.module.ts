@@ -14,6 +14,8 @@ import { environment } from '../environments/environment';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 //plugins
 import{ImagePicker} from '@ionic-native/image-picker/ngx';
+//auth
+import{  AngularFireAuthModule} from "@angular/fire/auth"
 
 @NgModule({
   declarations: [AppComponent, ],
@@ -21,7 +23,8 @@ import{ImagePicker} from '@ionic-native/image-picker/ngx';
   imports: [BrowserModule, IonicModule.forRoot(),
      AppRoutingModule,
      AngularFireModule.initializeApp(environment.firebaseConfig),//importar esao
-     AngularFirestoreModule
+     AngularFirestoreModule,
+     AngularFireAuthModule
     ],
   providers: [
     StatusBar,

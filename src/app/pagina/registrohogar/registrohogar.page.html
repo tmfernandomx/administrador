@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary" text-center>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-row>
+  <ion-col size="2"></ion-col>
+  <ion-col size="10">
+    <ion-avatar  >
+        <ion-img [src]="hogar.imagen"   ></ion-img>
+      </ion-avatar>
+    
+    <ion-button   expand="full" shape="round" fill="outline" (click)="seleccionarfoto()">Seleccionar imagen</ion-button>
+    
+    <ion-item  *ngIf="hogar">
+      <ion-input placeholder="Nombre de la asociación" [(ngModel)]="hogar.nombre"></ion-input>
+    </ion-item>
+     
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="Estado de la asociación" [(ngModel)]="hogar.estado"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="Municipio de la asociación" [(ngModel)]="hogar.municipio"></ion-input>
+    </ion-item> 
+
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="Dirección de la asociación" [(ngModel)]="hogar.ubicacion"></ion-input>
+    </ion-item> 
+
+
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="Telefono de la asociación" [(ngModel)]="hogar.telefono"></ion-input>
+    </ion-item> 
+
+   
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="Descripción de la asociación" [(ngModel)]="hogar.descripcion"></ion-input>
+    </ion-item> 
+
+    <ion-item *ngIf="hogar">
+      <ion-input  placeholder="correo electronico de la asociación" [(ngModel)]="hogar.correo"></ion-input>
+    </ion-item> 
+    
+    <ion-item *ngIf="hogar">
+      <ion-input  type="password"  placeholder="clave" [(ngModel)]="hogar.clave"></ion-input>
+    </ion-item> 
+
+    
+
+    <ion-button (click)=" onSubtmitRegistro()"  expand="full"shape="round" fill="outline" (click)="saveTodo()"> Registrar</ion-button>
+  </ion-col>
+</ion-row>
+
+<p text-center routerLink="/inicio">ya tengo cuenta</p>
+</ion-content>

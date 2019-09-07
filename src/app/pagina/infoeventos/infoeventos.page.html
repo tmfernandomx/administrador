@@ -9,10 +9,8 @@
 
 <ion-content>
 
-  <img src="../../../assets/sidos.png" id="imagenes">
+  <img [src]="evento.imagen" id="imagenes">
   <ion-button expand="full" (click)="seleccionarfoto()"> cargar foto</ion-button>
-
-
 
   <ion-list lines="full">
     <ion-item *ngIf="evento">

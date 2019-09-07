@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyA1WyX8jkjZQTqn49wwECZCbyhuebSxick",
-    authDomain: "tuapp-d8a44.firebaseapp.com",
-    databaseURL: "https://tuapp-d8a44.firebaseio.com",
-    projectId: "tuapp-d8a44",
-    storageBucket: "",
-    messagingSenderId: "649562714890",
-    appId: "1:649562714890:web:094180c3844156d2"
+    apiKey: "AIzaSyCzHDQeXv3KjF3w-OnwJlubs-Nu5iJX8Dc",
+    authDomain: "woofapp-78c4e.firebaseapp.com",
+    databaseURL: "https://woofapp-78c4e.firebaseio.com",
+    projectId: "woofapp-78c4e",
+    storageBucket: "woofapp-78c4e.appspot.com",
+    messagingSenderId: "445174022880",
+    appId: "1:445174022880:web:1dc33ce61298c449"
   }
 };
 
