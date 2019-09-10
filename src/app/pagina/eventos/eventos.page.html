@@ -9,8 +9,6 @@
     Salir
   </ion-button>
 
-  <p>{{id}}</p>
-
     <ion-item-sliding *ngFor="let eventos of eventos">
       <ion-item lines="inset" button [routerLink]="['/infoeventos', eventos.id]">
         <ion-row>

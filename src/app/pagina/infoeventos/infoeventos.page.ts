@@ -13,17 +13,21 @@ import{ImagePicker, ImagePickerOptions} from  '@ionic-native/image-picker/ngx';
 })
 export class InfoeventosPage implements OnInit {
 evento: Eventos={ 
-    imagen:'',
-    nombre:'',
-    fecha:''
+    imagen: '',
+    nombre: '',
+    fecha: '',
+    idFundacion: ''
   }
-  eventoID=null;
-  constructor(private route: ActivatedRoute, 
-    private nav: NavController,
-    private eventosService: EventosService,
-    private loadingController: LoadingController,
-    private imagePicker: ImagePicker
-    ) { }
+  eventoID = null;
+
+  constructor(private route: ActivatedRoute,
+              private nav: NavController,
+              private eventosService: EventosService,
+              private loadingController: LoadingController,
+              private imagePicker: ImagePicker
+    ) { 
+      this.evento.idFundacion = localStorage.getItem('id');
+    }
 
     ngOnInit() {
       this.eventoID= this.route.snapshot.params['id'];
@@ -62,7 +66,7 @@ evento: Eventos={
     
         this.eventosService.addEvento(this.evento).then(() =>{
           loading.dismiss();
-          this.nav.navigateForward('/');
+          this.nav.pop();
       });
       }
     

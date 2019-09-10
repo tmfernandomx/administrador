@@ -24,7 +24,8 @@ import{  AngularFireAuthModule} from "@angular/fire/auth"
      AppRoutingModule,
      AngularFireModule.initializeApp(environment.firebaseConfig),//importar esao
      AngularFirestoreModule,
-     AngularFireAuthModule
+     AngularFireAuthModule,
+     AngularFirestoreModule.enablePersistence()
     ],
   providers: [
     StatusBar,

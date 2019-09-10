@@ -11,6 +11,8 @@ export class EventosService {
 
   private eventoCollection: AngularFirestoreCollection<Eventos>;
   private event: Observable<Eventos[]>;
+
+
    constructor(db:AngularFirestore) {
      this.eventoCollection= db.collection<Eventos>('events');
      this.event= this.eventoCollection.snapshotChanges().pipe(map(
@@ -26,6 +28,7 @@ export class EventosService {
     getEventos() {
      return this.event;
    }
+
    getEvento(id: string) {
      return this.eventoCollection.doc<Eventos>(id).valueChanges();
    }

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {NavController, LoadingController} from '@ionic/angular';
 import{Casahogar} from '../../models/registrohogar.interfaces'
-import{RegistrohogarService}from '../../servicios/registrohogar.service'
 //plugins
 import{ImagePicker, ImagePickerOptions} from  '@ionic-native/image-picker/ngx';
+import { CasahogarService } from 'src/app/servicios/casahogar.service';
 
 @Component({
   selector: 'app-miperfil',
@@ -12,73 +12,66 @@ import{ImagePicker, ImagePickerOptions} from  '@ionic-native/image-picker/ngx';
   styleUrls: ['./miperfil.page.scss'],
 })
 export class MiperfilPage implements OnInit {
-  hogar: Casahogar={
-    
-    descripcion:'',
-    estado:'',
-    logo:'',
-    municipio:'',
-    ubicacion:'',
-    nombre:'',
-    telefono:'',
-    correo:'',
-    clave:'',
+  hogar: Casahogar = {
+    descripcion: '',
+    estado: '',
+    logo: '',
+    municipio: '',
+    ubicacion: '',
+    nombre: '',
+    telefono: '',
+    email: '',
+    clave: '',
+    foto: '',
   }
-  hogarID=null;
-  
+  hogarID = null;
+
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private nav: NavController,
-    private hogarService: RegistrohogarService,
+    private _casahogar: CasahogarService,
     private loadingController: LoadingController,
     private imagePicker: ImagePicker
-  ) { 
-
+  ) {
+    this.hogarID = localStorage.getItem('id');
   }
 
- 
+
   ngOnInit() {
-    this.hogarID= this.route.snapshot.params['id'];
-    if(this.hogarID){
-      this.loadLista();
-    }
+    this.loadData();
   }
-  
-  async loadLista(){
+
+  async loadData() {
     const loading = await this.loadingController.create({
-      message:'Cargando...'
+      message: 'Cargando...'
     });
     await loading.present();
-    this.hogarService.getRegistro(this.hogarID).subscribe(res =>{
+    this._casahogar.getFundationById(this.hogarID).subscribe( data =>{
+      console.log(data);
+      this.hogar = data;
       loading.dismiss();
-      this.hogar = res;
     });
   }
-  async saveTodo(){
-    const loading=await this.loadingController.create({
-      message:'Guardando....'
+
+  onSubmit() {
+    this.saveDataFundation();
+  }
+
+  async saveDataFundation() {
+    const loading = await this.loadingController.create({
+      message: 'Guardando....'
     });
+
     await loading.present();
-  
-    if(this.hogarID){
+
+    if(this.hogarID != null) {
       //uppdate
-  
-      this.hogarService.updateRegistro(this.hogar, this.hogarID).then(() =>{
+      this._casahogar.updateFundation(this.hogar, this.hogarID).then(() => {
           loading.dismiss();
           this.nav.navigateForward('/');
       });
-  
-    }else{
-      //add new
-  
-  
-      this.hogarService.addRegistro(this.hogarID).then(() =>{
-        loading.dismiss();
-        this.nav.navigateForward('/');
-    });
     }
-  
   }
 
 }

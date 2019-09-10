@@ -5,15 +5,13 @@
 </ion-header>
 
 <ion-content>
+  
+  <ion-img class="img" [src]="hogar.foto"></ion-img>
+    
+  <ion-button   expand="full" shape="round" fill="outline" (click)="seleccionarfoto()">Seleccionar imagen</ion-button>
   <ion-row>
-    <ion-col size="2"></ion-col>
+    <ion-col size="1"></ion-col>
     <ion-col size="10">
-      <ion-avatar  >
-          <ion-img [src]=""   ></ion-img>
-        </ion-avatar>
-      
-      <ion-button   expand="full" shape="round" fill="outline" (click)="seleccionarfoto()">Seleccionar imagen</ion-button>
-      
       <ion-item  *ngIf="hogar">
         <ion-input placeholder="Nombre de la asociación" [(ngModel)]="hogar.nombre"></ion-input>
       </ion-item>
@@ -41,19 +39,16 @@
       </ion-item> 
   
       <ion-item *ngIf="hogar">
-        <ion-input placeholder="correo electronico de la asociación" [(ngModel)]="hogar.correo"></ion-input>
+        <ion-input placeholder="correo electronico de la asociación" [(ngModel)]="hogar.email"></ion-input>
       </ion-item> 
       
       <ion-item *ngIf="hogar">
-        <ion-input  type="password" [(ngModel)]="clave" placeholder="clave" [(ngModel)]="hogar.clave"></ion-input>
+        <ion-input  type="password" [(ngModel)]="hogar.clave" placeholder="clave" [(ngModel)]="hogar.clave"></ion-input>
       </ion-item> 
   
       
   
-      <ion-button (click)=" onSubtmitRegistro()"  expand="full"shape="round" fill="outline" (click)="saveTodo()"> Guardar</ion-button>
+      <ion-button (click)=" onSubmit()"  expand="full"shape="round" fill="outline" (click)="saveTodo()"> Guardar</ion-button>
     </ion-col>
+    <ion-col size="1"></ion-col>
   </ion-row>
-  
-
-  <ion-button>hola tony xD</ion-button>
-</ion-content>

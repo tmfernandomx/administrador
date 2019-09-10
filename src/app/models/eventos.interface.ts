@@ -3,4 +3,5 @@ export interface Eventos{
     imagen: string;
     nombre: string;
     fecha: string;
+    idFundacion: string;
 }

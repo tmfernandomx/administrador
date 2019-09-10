@@ -24,8 +24,9 @@ export class RegistrohogarPage implements OnInit {
     ubicacion:'',
     nombre:'',
     telefono:'',
-    correo:'',
+    email:'',
     clave:'',
+    foto: ''
   }
   registroID=null;
 
@@ -79,7 +80,7 @@ export class RegistrohogarPage implements OnInit {
   }
 
   onSubtmitRegistro(){
-      this.auth.registro(this.hogar.correo,
+      this.auth.registro(this.hogar.email,
         this.hogar.clave,
         this.hogar.descripcion,
         this.hogar.estado,
