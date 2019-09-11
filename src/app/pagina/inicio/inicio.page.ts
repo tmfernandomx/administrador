@@ -18,7 +18,7 @@ export class InicioPage implements OnInit {
   onSubmitlogin(){
     this.authservices.login(this.email, this.password).then(res=>{
 
-      this.router.navigate(['/tabs'])
+      location.assign('/tabs');
     }).catch(res=> alert('los datos son incorrectos o no existe el usuario'))
 
   }

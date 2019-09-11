@@ -21,8 +21,7 @@ export class MiperfilPage implements OnInit {
     nombre: '',
     telefono: '',
     email: '',
-    clave: '',
-    foto: '',
+    clave: ''
   }
   hogarID = null;
 
@@ -71,6 +70,11 @@ export class MiperfilPage implements OnInit {
           loading.dismiss();
           this.nav.navigateForward('/');
       });
+    }else{
+      this._casahogar.addFundation(this.hogar).then(()=>{
+        loading.dismiss
+        this.nav.navigateForward('/');
+      })
     }
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{Eventos} from '../../models/eventos.interface';
-import{EventosService} from '../../servicios/eventos.service';
-import{AuthService} from "../../servicios/auth.service"
+import {Eventos} from '../../models/eventos.interface';
+import {EventosService} from '../../servicios/eventos.service';
+import {AuthService} from '../../servicios/auth.service';
 import { from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 
@@ -14,11 +14,11 @@ export class EventosPage implements OnInit {
   eventos: Array<Eventos> = new Array();
   id: any;
 
-  constructor(private eventosService:EventosService,
+  constructor(private eventosService: EventosService,
               public authservice: AuthService,
               private loadingController: LoadingController) {
-       console.log("Eventos:"+localStorage.getItem("id"));
-       this.id = localStorage.getItem("id");
+       console.log('Eventos onCreate:'+ localStorage.getItem('id'));
+       this.id = localStorage.getItem('id');
   }
 
   ngOnInit() {
@@ -30,22 +30,30 @@ export class EventosPage implements OnInit {
       message: 'Cargando...'
     });
     await loading.present();
+
     this.eventosService.getEventos().subscribe(res => {
+      this.eventos = new Array();
       res.forEach(element => {
         if (element.idFundacion === this.id) {
           this.eventos.push(element);
         }
       });
 
+
       loading.dismiss();
+
+      if (res == null) {
+        loading.dismiss();
+      }
     });
   }
 
-  salirlogin(){
+  salirlogin() {
     this.authservice.salirlogin();
+    this.ionViewWillLeave();
   }
 
-  ionViewWillLeave(){
+  ionViewWillLeave() {
     console.log('nos vamos');
   }
 

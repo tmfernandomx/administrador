@@ -41,7 +41,7 @@
     </ion-item> 
 
     <ion-item *ngIf="hogar">
-      <ion-input  placeholder="correo electronico de la asociación" [(ngModel)]="hogar.correo"></ion-input>
+      <ion-input  placeholder="correo electronico de la asociación" [(ngModel)]="hogar.email"></ion-input>
     </ion-item> 
     
     <ion-item *ngIf="hogar">
@@ -50,7 +50,7 @@
 
     
 
-    <ion-button (click)=" onSubtmitRegistro()"  expand="full"shape="round" fill="outline" (click)="saveTodo()"> Registrar</ion-button>
+    <ion-button (click)=" onSubtmitRegistro()"  expand="full"shape="round" fill="outline"> Registrar</ion-button>
   </ion-col>
 </ion-row>
 

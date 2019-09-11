@@ -10,5 +10,4 @@ nombre: string;
 telefono: string;
 email: string;
 clave: string;
-foto: string;
 }
