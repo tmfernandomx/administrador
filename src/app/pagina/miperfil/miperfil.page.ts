@@ -77,5 +77,23 @@ export class MiperfilPage implements OnInit {
       })
     }
   }
+  // puse esta parte dela imagen
+  seleccionarfoto(){
+
+    let options:ImagePickerOptions = {
+      quality: 60,
+      outputType: 1,
+      maximumImagesCount: 1
+    }
+  
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+          //console.log('Image URI: ' + results[i]);
+          this.hogar.logo = 'data:image/jpeg;base64,' + results;
+      }
+    }, (err) => {
+      console.log( "Error en selector", JSON.stringify(err));
+     });
+  }
 
 }
