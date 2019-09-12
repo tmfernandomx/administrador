@@ -48,7 +48,7 @@ export class AuthService {
         const uid = res.user.uid;
         if(logo === '') {
           // tslint:disable-next-line: max-line-length
-          logo = 'https://firebasestorage.googleapis.com/v0/b/woofapp-78c4e.appspot.com/o/pit.jpg?alt=media&token=ea706358-efd2-4038-a6ba-605b1208aabb';
+          logo = 'https://firebasestorage.googleapis.com/v0/b/woofapp-78c4e.appspot.com/o/imagen.png?alt=media&token=80353dba-5200-4406-bcc5-9e2963904536';
         }
         this.db.collection('fundaciones').doc(uid).set({
         email,
